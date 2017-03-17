@@ -6,16 +6,25 @@
 from collections import deque
 
 class Request:
+    """
+    Stores arrival time and processing time for each packet
+    """
     def __init__(self, arrival_time, process_time):
         self.arrival_time = arrival_time
         self.process_time = process_time
 
 class Response:
+    """
+    Stores status for the current packet
+    """
     def __init__(self, dropped, start_time):
         self.dropped = dropped
         self.start_time = start_time
 
 class Buffer:
+    """
+    Stores buffer size and finish time for each packet
+    """
     def __init__(self, size):
         self.size = size
         self.finish_time_ = deque()
@@ -34,6 +43,12 @@ class Buffer:
         return Response(False, start)
 
 def ReadRequests(count):
+    """Reads requests from stdin
+    The first line of the input contains the size 𝑆 of the buffer
+    and the number 𝑛 of incoming network packets. Each of the next n lines
+    contains two numbers. 𝑖-th line contains the time of arrival 𝐴𝑖 and the
+    processing time 𝑃𝑖 (both in milliseconds) of the 𝑖-th packet.
+    """
     requests = []
     for i in range(count):
         arrival_time, process_time = map(int, input().strip().split())
@@ -41,6 +56,9 @@ def ReadRequests(count):
     return requests
 
 def ProcessRequests(requests, buffer):
+    """
+    Processes the given responses, given the specifed buffer
+    """
     responses = []
     for request in requests:
         responses.append(buffer.Process(request))
@@ -52,13 +70,7 @@ def PrintResponses(responses):
 
 if __name__ == "__main__":
     size, count = map(int, input().strip().split())
-    #size = 1
-    #count = 2
     requests = ReadRequests(count)
-    #requests = [Request(0,1),Request(1,1)]
-    #requests = [Request(0,1),Request(0,1)]
-
     buffer = Buffer(size)
     responses = ProcessRequests(requests, buffer)
-
     PrintResponses(responses)

@@ -1,6 +1,6 @@
 # Uses python3
 # Basic binary search
-# Algorithmic Toolbox, Week3.1 (Divide and Conquer)
+# Algorithmic Toolbox, Divide and Conquer #1
 
 import sys
 
