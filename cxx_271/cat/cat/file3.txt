@@ -1,3 +1,0 @@
-file3 text1
-file3 text2
-file3 text3
