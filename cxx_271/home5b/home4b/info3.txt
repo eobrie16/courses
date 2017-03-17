@@ -1,0 +1,6 @@
+text
+TEXT
+teXt
+My text here.
+I am not going to print this.
+tttttttttttttttttttttttttttTEXTtttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
