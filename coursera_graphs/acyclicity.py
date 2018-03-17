@@ -1,22 +1,21 @@
 #Uses python3
-
 import sys
+sys.setrecursionlimit(200000)
+
 
 visited = set()
-def explore(adj, x):
-    cycle = 0
-    visited.add(x)
-    for a in adj[x]:
-        if cycle or a in visited:
-            return 1
-        cycle = explore(adj, a)
-        visited.remove(a)
-    return cycle
+def explore(adj, curvisit, v):
+    visited.add(v)
+    curvisit.add(v)
+    for a in adj[v]:
+        if a in curvisit or explore(adj, curvisit, a):
+            return True
+        curvisit.remove(a)
+    return False
 
 def acyclic(adj):
     for i in range(len(adj)):
-        if i not in visited:
-            if explore(adj, i):
+        if i not in visited and explore(adj, set(), i):
                 return 1
     return 0
 

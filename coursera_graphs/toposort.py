@@ -17,7 +17,7 @@ def toposort(adj):
     used = set()
     order = deque()
     for x in range(len(adj)):
-        if x not in order:
+        if x not in used:
             order = dfs(adj, used, order, x)
             order.appendleft(x)
     return order
