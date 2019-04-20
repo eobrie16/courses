@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Base</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default navbar-static-top">
+      <ul class="navbar navbar-nav">
+        <li><a class="navbar-brand" href="{% url 'myapp:list' %}">Schools</a></li>
+        <li><a class="navbar-brand" href="{% url 'admin:index' %}">Admin</a></li>
+        <li> <a href="#"></a> </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+
+      {% block bodyblock %}
+
+      {% endblock %}
+
+    </div>
+
+
+
+  </body>
+</html>
